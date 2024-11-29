@@ -1,3 +1,9 @@
+:root {
+  --github-username: 'MegumiKatou02';
+  --base-url: '/Khu-Wibu-Page';
+  --assets-path: '/src/assets';
+}
+
 body {
     margin: 0;
     padding: 0;
