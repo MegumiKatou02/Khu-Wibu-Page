@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     musicToggle?.addEventListener('click', () => {
         if (!isControlsVisible) {
-            audio.play();
-            isMusicPlaying = true;
+            // audio.play();
+            // isMusicPlaying = true; 
             isControlsVisible = true;
             audioControls?.classList.add('show');
         } else {
@@ -100,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     playPauseBtn?.addEventListener('click', () => {
+        console.log('hello');
         if (isMusicPlaying) {
+            isMusicPlaying = false; 
             audio.pause();
             playPauseBtn.classList.remove('playing');
             document.querySelector('.music-icon')?.classList.remove('rotating');
         } else {
+            isMusicPlaying = true; 
             audio.play();
             playPauseBtn.classList.add('playing');
             document.querySelector('.music-icon')?.classList.add('rotating');
@@ -113,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startMusicOnFirstInteraction = () => {
         if (!hasInteracted) {
+            isMusicPlaying = true;
             audio.play();
             hasInteracted = true;
             playPauseBtn?.classList.add('playing');

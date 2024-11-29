@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let isMusicPlaying = false;
     musicToggle === null || musicToggle === void 0 ? void 0 : musicToggle.addEventListener('click', () => {
         if (!isControlsVisible) {
-            audio.play();
-            isMusicPlaying = true;
+            // audio.play();
+            // isMusicPlaying = true; //*check
             isControlsVisible = true;
             audioControls === null || audioControls === void 0 ? void 0 : audioControls.classList.add('show');
         }
@@ -94,12 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     playPauseBtn === null || playPauseBtn === void 0 ? void 0 : playPauseBtn.addEventListener('click', () => {
         var _a, _b;
+        console.log('hello');
         if (isMusicPlaying) {
+            isMusicPlaying = false; //*
             audio.pause();
             playPauseBtn.classList.remove('playing');
             (_a = document.querySelector('.music-icon')) === null || _a === void 0 ? void 0 : _a.classList.remove('rotating');
         }
         else {
+            isMusicPlaying = true; //*
             audio.play();
             playPauseBtn.classList.add('playing');
             (_b = document.querySelector('.music-icon')) === null || _b === void 0 ? void 0 : _b.classList.add('rotating');
@@ -107,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const startMusicOnFirstInteraction = () => {
         if (!hasInteracted) {
+            isMusicPlaying = true;
             audio.play();
             hasInteracted = true;
             playPauseBtn === null || playPauseBtn === void 0 ? void 0 : playPauseBtn.classList.add('playing');
