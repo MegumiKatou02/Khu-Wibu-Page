@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Discord của tôi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!--tt-->
+    <audio id="bgMusic" loop>
+        <source src="src/assets/audio/ETERNALKatouMegumi.mp3" type="audio/mp3">
+    </audio>
+
+    <button class="music-toggle">
+        <img src="src/assets/image/megumi-icon.jpg" alt="Megumi Music">
+    </button>
+
+    <!-- <div class="music-info">
+        <p>🎵 Đang phát: Megumi Katou Theme</p>
+        <a href="https://www.youtube.com/watch?v=ib4hCR2DRBk" target="_blank">
+            Xem trên YouTube
+        </a>
+    </div> -->
+
+    <div class="main-container">
+        <!-- Thanh điều hướng -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                        <span>Tìm</span>
+                    </button>
+                </div>
+                <ul>
+                    <li><a href="#" class="active">Trang chủ</a></li>
+                    <li><a href="#bots" >Bot Server</a></li>
+                    <li><a href="#info">Thông tin</a></li>
+                    <li><a href="#contribute">Đóng góp</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Banner -->
+        <div class="banner">
+            <div class="slider">
+                <img src="src/assets/image/MegumiBanner1.jpg" alt="Anime Banner 1" class="slide">
+                <img src="src/assets/image/MegumiBanner2.jpg" alt="Anime Banner 2" class="slide">
+                <img src="src/assets/image/MegumiBanner3.jpg" alt="Anime Banner 3" class="slide">
+                <img src="src/assets/image/MegumiBanner1.jpg" alt="Anime Banner 1" class="slide">
+                <img src="src/assets/image/MegumiBanner2.jpg" alt="Anime Banner 2" class="slide">
+                <img src="src/assets/image/MegumiBanner3.jpg" alt="Anime Banner 3" class="slide">
+            </div>
+        </div>
+
+        <!-- Nội dung trang chủ -->
+        <section id="home" class="section">
+            <div class="server-info">
+                <h1>Chào mừng đến với Server Discord Khu Wibu!</h1>
+                <div class="server-description">
+                    <div class="description-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Cộng đồng thân thiện</h3>
+                        <p>Nơi gặp gỡ của những người yêu thích anime/manga, cùng nhau chia sẻ đam mê và kết bạn.</p>
+                    </div>
+                    <div class="description-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Trò chuyện sôi nổi</h3>
+                        <p>Thảo luận về anime mới, manga hay, light novel và các sự kiện văn hóa Nhật Bản.</p>
+                    </div>
+                    <div class="description-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Giải trí đa dạng</h3>
+                        <p>Tham gia các mini game, quiz anime, xem phim cùng nhau và nhiều hoạt động thú vị khác.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Bot Server -->
+        <section id="bots" class="section">
+            <div class="section-title">
+                <h2>Bot Server</h2>
+                <!-- <div class="title-underline"></div> -->
+            </div>
+            <div class="bot-container">
+                <div class="bot-card">
+                    <img src="src/assets/image/bot-avatar.jpg" alt="Bot Avatar">
+                    <h3>Khu Wibu</h3>
+                    <p>Bot server khu wibu</p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1307581043288571914" 
+                       class="invite-button" 
+                       target="_blank">
+                        Mời Bot
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Thông tin -->
+        <section id="info" class="section">
+            <div class="section-title">
+                <h2>Thông Tin Server</h2>
+                <!-- <div class="title-underline"></div> -->
+            </div>
+            <div class="server-info">
+                <img src="src/assets/image/avt-server.jpg" alt="Server Icon" class="server-image">
+                <div class="info-card">
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Ngày tạo: 25/09/2021</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Thành viên: 303</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-hashtag"></i>
+                        <span>Số kênh: 81</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Số boost: 10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Đóng góp -->
+        <section id="contribute" class="section">
+            <div class="section-title">
+                <h2>Đóng Góp</h2>
+                <!-- <div class="title-underline"></div> -->
+            </div>
+            <div class="contribute-info">
+                <div class="contributor-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Người phát triển</h3>
+                    <p>Lê Đình Chinh</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="sakura-container"></div>
+    <script src="src/sakura.ts"></script>
+    <!-- <script src="src/script.ts"></script> -->
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    <script src="src/script.ts"></script>
+    <div class="audio-controls">
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="time-display">
+            <span class="current-time">0:00</span>
+            <span class="duration">0:00</span>
+        </div>
+    </div>
+    <button class="play-pause-btn">
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+    </button>
+    <div class="toast-notification" id="searchNotification">
+        <div class="toast-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <div class="toast-message">Không tìm thấy nội dung bạn cần tìm!</div>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+</body>
+</html>
