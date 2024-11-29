@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic');
+    if (!audio)
+        return;
     audio.volume = 0.2;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
@@ -116,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSlider() {
     const slides = document.querySelectorAll('.slide');
     const slider = document.querySelector('.slider');
+    if (!slides.length || !slider)
+        return;
     let currentSlide = 0;
     const slideInterval = 6000;
     function nextSlide() {
@@ -185,12 +189,14 @@ function initializeSearch() {
         }
         showNotification('Không tìm thấy nội dung bạn cần tìm!');
     }
-    searchButton.addEventListener('click', performSearch);
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
-    });
+    if (searchButton && searchInput) {
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
 }
 document.addEventListener('DOMContentLoaded', () => {
     initializeSearch();
