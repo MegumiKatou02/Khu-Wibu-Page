@@ -81,7 +81,29 @@ body {
     width: 100%;
     height: 400px;
     margin-top: 20px;
-    /* margin-bottom: 0px; */
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 200px;
+        margin-top: 80px;
+    }
+
+    .main-container {
+        padding-top: 0; 
+    }
+
+    .navigation {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 0;
+        position: fixed;
+        left: 0;
+        transform: none;
+        z-index: 1010;
+        background-color: rgba(255, 183, 197, 0.95);
+        backdrop-filter: blur(5px); 
+    }
 }
 
 .slider {
@@ -546,36 +568,29 @@ body.dark-theme .server-image {
     }
 
     .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 5px 10px;
-        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
     }
 
     .mobile-menu-btn {
         display: block;
-        font-size: 1.5rem;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 15px;
     }
 
     .navigation ul {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 100%;
-        background: #FFB7C5;
-        padding: 10px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        padding: 0;
+        margin-top: 10px;
     }
 
     .navigation ul.show {
         display: flex;
-        flex-direction: column;
-        gap: 0;
     }
 
     .navigation ul li {
@@ -583,28 +598,19 @@ body.dark-theme .server-image {
     }
 
     .navigation a {
-        padding: 12px 20px;
         width: 100%;
-        justify-content: center;
+        padding: 12px 15px;
         border-radius: 0;
+        justify-content: flex-start;
     }
 
     .search-box {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        background: #FFB7C5;
-        display: none;
-    }
-
-    .search-box.show {
-        display: flex;
+        width: calc(100% - 50px); /* Để tránh overlap với nút menu */
+        margin-top: 10px;
     }
 
     .search-box input {
-        width: calc(100% - 70px);
+        width: 100%;
     }
 
     .search-box button {
@@ -822,4 +828,11 @@ body.dark-theme .toast-message {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }

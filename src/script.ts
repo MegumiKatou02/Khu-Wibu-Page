@@ -1,3 +1,11 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
 document.querySelectorAll('.navigation a').forEach(anchor => {
     anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
@@ -33,6 +41,7 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = themeToggle?.querySelector('i');
 
@@ -62,11 +71,26 @@ document.addEventListener('click', (e) => {
     }
 });
 
+document.addEventListener('visibilitychange', () => {
+    const audio = document.getElementById('bgMusic') as HTMLAudioElement;
+
+    if (!audio) return;
+
+    if (document.hidden) {
+        isControlsVisible = false;
+        audio.pause();
+    } else {
+        isControlsVisible = true;
+        audio.play();
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic') as HTMLAudioElement;
     if (!audio) return;
     
-    audio.volume = 0.18;
+    audio.volume = 0.1;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
     const progressBar = document.querySelector('.progress-bar') as HTMLElement;

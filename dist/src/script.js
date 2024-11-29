@@ -1,4 +1,10 @@
 "use strict";
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
 document.querySelectorAll('.navigation a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -55,11 +61,24 @@ document.addEventListener('click', (e) => {
         audioControls === null || audioControls === void 0 ? void 0 : audioControls.classList.remove('show');
     }
 });
+document.addEventListener('visibilitychange', () => {
+    const audio = document.getElementById('bgMusic');
+    if (!audio)
+        return;
+    if (document.hidden) {
+        isControlsVisible = false;
+        audio.pause();
+    }
+    else {
+        isControlsVisible = true;
+        audio.play();
+    }
+});
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic');
     if (!audio)
         return;
-    audio.volume = 0.18;
+    audio.volume = 0.1;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
     const progressBar = document.querySelector('.progress-bar');

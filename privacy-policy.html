@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách & Quyền riêng tư - Khu Wibu Bot</title>
+    <link rel="stylesheet" href="/Khu-Wibu-Page/src/terms.css">
+    <link rel="stylesheet" href="/Khu-Wibu-Page/src/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/Khu-Wibu-Page/src/assets/image/relife.ico">
+    
+</head>
+<body>
+    <div class="privacy-container">
+        <div class="sidebar">
+            <ul class="sidebar-nav">
+                <li><a href="#privacy" class="active" onclick="showContent('privacy')">Chính sách</a></li>
+                <li><a href="#terms" onclick="showContent('terms')">Quyền riêng tư</a></li>
+            </ul>
+        </div>
+
+        <div class="content-wrapper">
+            <header>
+                <h1>Chính sách & Quyền riêng tư</h1>
+            </header>
+            <div class="back-button-container">
+                <a href="/" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <main style="margin-top: 60px;">
+                <div id="privacy-content" class="active">
+                    <section class="privacy-section">
+                        <h2>1. Thu thập thông tin</h2>
+                        <p>Bot Khu Wibu chỉ thu thập các thông tin cần thiết để hoạt động như:</p>
+                        <ul>
+                            <li>ID server Discord</li>
+                            <li>ID kênh chat được sử dụng</li>
+                            <li>Cài đặt tùy chỉnh của server</li>
+                        </ul>
+                    </section>
+
+                    <section class="privacy-section">
+                        <h2>2. Sử dụng thông tin</h2>
+                        <p>Thông tin được thu thập chỉ được sử dụng để:</p>
+                        <ul>
+                            <li>Cung cấp và duy trì dịch vụ bot</li>
+                            <li>Cải thiện trải nghiệm người dùng</li>
+                            <li>Phân tích và tối ưu hóa hiệu suất</li>
+                        </ul>
+                    </section>
+
+                    <section class="privacy-section">
+                        <h2>3. Bảo mật thông tin</h2>
+                        <p>Chúng tôi cam kết:</p>
+                        <ul>
+                            <li>Không chia sẻ thông tin với bên thứ ba</li>
+                            <li>Bảo vệ thông tin bằng các biện pháp bảo mật phù hợp</li>
+                            <li>Chỉ lưu trữ thông tin trong thời gian cần thiết</li>
+                        </ul>
+                    </section>
+
+                    <section class="privacy-section">
+                        <h2>4. Quyền của người dùng</h2>
+                        <p>Bạn có quyền:</p>
+                        <ul>
+                            <li>Yêu cầu xóa dữ liệu của server</li>
+                            <li>Tắt các tính năng thu thập dữ liệu</li>
+                            <li>Liên hệ để được giải đáp thắc mắc</li>
+                        </ul>
+                    </section>
+
+                    <section class="privacy-section">
+                        <h2>5. Liên hệ</h2>
+                        <p>Nếu bạn có bất kỳ câu hỏi nào về chính sách này, vui lòng liên hệ:</p>
+                        <ul>
+                            <li>Discord: <a href="https://discord.com/users/604949724788817920" target="_blank">Yukiooki_</a></li>
+                            <li>Email: <a href="mailto:ledinhchinh.dev@gmail.com">ledinhchinh.dev@gmail.com</a></li>
+                            <li>GitHub: <a href="https://github.com/MegumiKatou02" target="_blank">MegumiKatou02</a></li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div id="terms-content">
+                    <section class="privacy-section">
+                        <h2>1. Quyền riêng tư của người dùng</h2>
+                        <p>Chúng tôi tôn trọng quyền riêng tư của bạn:</p>
+                        <ul>
+                            <li>Không thu thập thông tin cá nhân không cần thiết</li>
+                            <li>Bảo vệ dữ liệu người dùng</li>
+                            <li>Cho phép kiểm soát dữ liệu của bạn</li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+
+            <footer>
+                <p>Cập nhật lần cuối: 30/11/2024</p>
+                <p>Copyright © 2024 MegumiKatou02 (Le Dinh Chinh). All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function showContent(contentType) {
+            document.getElementById('privacy-content').classList.remove('active');
+            document.getElementById('terms-content').classList.remove('active');
+            
+            document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.getElementById(`${contentType}-content`).classList.add('active');
+            
+            document.querySelector(`a[href="#${contentType}"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
