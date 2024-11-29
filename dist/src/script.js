@@ -45,11 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+let isControlsVisible = false;
+document.addEventListener('click', (e) => {
+    const musicToggle = document.querySelector('.music-toggle');
+    const audioControls = document.querySelector('.audio-controls');
+    const target = e.target;
+    if (!(musicToggle === null || musicToggle === void 0 ? void 0 : musicToggle.contains(target)) && !(audioControls === null || audioControls === void 0 ? void 0 : audioControls.contains(target))) {
+        isControlsVisible = false;
+        audioControls === null || audioControls === void 0 ? void 0 : audioControls.classList.remove('show');
+    }
+});
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic');
     if (!audio)
         return;
-    audio.volume = 0.2;
+    audio.volume = 0.18;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
     const progressBar = document.querySelector('.progress-bar');
@@ -78,12 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const percent = (e.clientX - rect.left) / rect.width;
         audio.currentTime = percent * audio.duration;
     });
-    let isControlsVisible = false;
     let isMusicPlaying = false;
     musicToggle === null || musicToggle === void 0 ? void 0 : musicToggle.addEventListener('click', () => {
         if (!isControlsVisible) {
             // audio.play();
-            // isMusicPlaying = true; //*check
+            // isMusicPlaying = true; 
             isControlsVisible = true;
             audioControls === null || audioControls === void 0 ? void 0 : audioControls.classList.add('show');
         }
@@ -96,13 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
         var _a, _b;
         console.log('hello');
         if (isMusicPlaying) {
-            isMusicPlaying = false; //*
+            isMusicPlaying = false;
             audio.pause();
             playPauseBtn.classList.remove('playing');
             (_a = document.querySelector('.music-icon')) === null || _a === void 0 ? void 0 : _a.classList.remove('rotating');
         }
         else {
-            isMusicPlaying = true; //*
+            isMusicPlaying = true;
             audio.play();
             playPauseBtn.classList.add('playing');
             (_b = document.querySelector('.music-icon')) === null || _b === void 0 ? void 0 : _b.classList.add('rotating');

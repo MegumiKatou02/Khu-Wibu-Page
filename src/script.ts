@@ -49,11 +49,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+let isControlsVisible = false;
+
+document.addEventListener('click', (e) => {
+    const musicToggle = document.querySelector('.music-toggle');
+    const audioControls = document.querySelector('.audio-controls');
+    const target = e.target as HTMLElement;
+
+    if (!musicToggle?.contains(target) && !audioControls?.contains(target)) {
+        isControlsVisible = false;
+        audioControls?.classList.remove('show');
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic') as HTMLAudioElement;
     if (!audio) return;
     
-    audio.volume = 0.2;
+    audio.volume = 0.18;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
     const progressBar = document.querySelector('.progress-bar') as HTMLElement;
@@ -84,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.currentTime = percent * audio.duration;
     });
 
-    let isControlsVisible = false;
     let isMusicPlaying = false;
 
     musicToggle?.addEventListener('click', () => {
