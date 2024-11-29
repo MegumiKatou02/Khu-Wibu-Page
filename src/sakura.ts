@@ -15,11 +15,9 @@ function createSakura() {
 
     sakuraContainer.appendChild(sakura);
 
-    // Xóa hoa sau khi animation kết thúc
     setTimeout(() => {
         sakura.remove();
     }, animationDuration * 1000);
 }
 
-// Tạo hoa anh đào liên tục
 setInterval(createSakura, 300);

@@ -3,7 +3,6 @@ document.querySelectorAll('.navigation a').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         
-        // Xử lý đặc biệt cho trang chủ
         if (targetId === '#') {
             window.scrollTo({
                 top: 0,
@@ -12,7 +11,6 @@ document.querySelectorAll('.navigation a').forEach(anchor => {
             return;
         }
 
-        // Xử lý cho các link khác
         if (!targetId) return;
         const targetSection = document.querySelector(targetId);
         
@@ -34,7 +32,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Thêm code xử lý theme toggle
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = themeToggle?.querySelector('i');
@@ -64,14 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const playPauseBtn = document.querySelector('.play-pause-btn');
     let hasInteracted = false;
 
-    // Format time function
     const formatTime = (seconds: number): string => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
     };
 
-    // Update progress bar
     audio.addEventListener('timeupdate', () => {
         const percent = (audio.currentTime / audio.duration) * 100;
         progressBar.style.width = `${percent}%`;
@@ -90,23 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let isControlsVisible = false;
     let isMusicPlaying = false;
 
-    // Xử lý nút hiển thị/ẩn controls
     musicToggle?.addEventListener('click', () => {
         if (!isControlsVisible) {
-            // Lần click đầu tiên
             audio.play();
             isMusicPlaying = true;
             isControlsVisible = true;
             audioControls?.classList.add('show');
         } else {
-            // Những lần click sau
             isControlsVisible = false;
             audioControls?.classList.remove('show');
-            // Không dừng nhạc khi ẩn controls
         }
     });
 
-    // Thêm nút play/pause riêng
     playPauseBtn?.addEventListener('click', () => {
         if (isMusicPlaying) {
             audio.pause();
@@ -119,18 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Hàm bật nhạc lần đầu
     const startMusicOnFirstInteraction = () => {
         if (!hasInteracted) {
             audio.play();
             hasInteracted = true;
             playPauseBtn?.classList.add('playing');
-            // Xóa event listener sau lần click đầu tiên
             document.removeEventListener('click', startMusicOnFirstInteraction);
         }
     };
 
-    // Lắng nghe click ở bất kỳ đâu trên trang
     document.addEventListener('click', startMusicOnFirstInteraction);
 });
 
@@ -145,7 +132,6 @@ function initSlider() {
         if (currentSlide >= slides.length / 2) {
             slider.style.transform = `translateX(-${currentSlide * 12.5}%)`; // Tiếp tục lướt
             
-            // Đợi animation kết thúc rồi mới reset
             setTimeout(() => {
                 slider.style.transition = 'none';
                 currentSlide = 0;
@@ -159,7 +145,6 @@ function initSlider() {
         }
     }
 
-    // Tự động chuyển slide
     setInterval(nextSlide, slideInterval);
 }
 
@@ -171,13 +156,10 @@ function showNotification(message: string) {
     const messageElement = notification.querySelector('.toast-message');
     if (!messageElement) return;
     
-    // Cập nhật nội dung
     messageElement.textContent = message;
     
-    // Hiển thị notification
     notification.classList.add('show');
     
-    // Tự động ẩn sau 3 giây
     setTimeout(() => {
         notification.classList.remove('show');
     }, 3000);
@@ -205,7 +187,6 @@ function initializeSearch() {
             return;
         }
         
-        // Kiểm tra từ khóa tìm kiếm
         for (const [key, value] of Object.entries(searchableContent)) {
             if (key.includes(searchTerm) || searchTerm.includes(key)) {
                 const element = document.querySelector(value);
@@ -221,7 +202,6 @@ function initializeSearch() {
             }
         }
         
-        // Không tìm thấy kết quả
         showNotification('Không tìm thấy nội dung bạn cần tìm!');
     }
 
