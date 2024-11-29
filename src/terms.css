@@ -167,7 +167,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Animation cho hoa anh đào rơi */
 @keyframes falling {
     0% {
         transform: translateY(-10%) rotate(0deg);
