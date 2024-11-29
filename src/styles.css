@@ -1,3 +1,9 @@
+:root {
+  --github-username: 'MegumiKatou02';
+  --base-url: '';
+  --assets-path: '/src/assets';
+}
+
 body {
     margin: 0;
     padding: 0;
