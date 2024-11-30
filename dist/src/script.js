@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 let isControlsVisible = false;
+let isMusicPlaying = false;
 document.addEventListener('click', (e) => {
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
@@ -66,12 +67,14 @@ document.addEventListener('visibilitychange', () => {
     if (!audio)
         return;
     if (document.hidden) {
-        isControlsVisible = false;
+        // isControlsVisible = false; *need check
         audio.pause();
     }
     else {
-        isControlsVisible = true;
-        audio.play();
+        if (isMusicPlaying) {
+            audio.play();
+        }
+        // isControlsVisible = true; *need check
     }
 });
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const percent = (e.clientX - rect.left) / rect.width;
         audio.currentTime = percent * audio.duration;
     });
-    let isMusicPlaying = false;
     musicToggle === null || musicToggle === void 0 ? void 0 : musicToggle.addEventListener('click', () => {
         if (!isControlsVisible) {
             // audio.play();
