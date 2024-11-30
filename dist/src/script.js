@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic');
     if (!audio)
         return;
-    audio.volume = 0.1;
+    audio.volume = 0.05;
     const musicToggle = document.querySelector('.music-toggle');
     const audioControls = document.querySelector('.audio-controls');
     const progressBar = document.querySelector('.progress-bar');
