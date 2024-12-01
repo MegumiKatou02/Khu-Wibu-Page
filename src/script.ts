@@ -50,6 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon?.classList.add('fa-moon');
         }
     });
+
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.navigation ul');
+
+    menuBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu?.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.navigation')) {
+            navMenu?.classList.remove('show');
+        }
+    });
+
+    document.querySelectorAll('.navigation a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu?.classList.remove('show');
+        });
+    });
 });
 
 let isControlsVisible = false;

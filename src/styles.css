@@ -353,7 +353,6 @@ section {
     font-size: 1.5em;
 }
 
-/* CSS cho dark theme */
 body.dark-theme {
     background-color: #1a1a1a;
     color: white;
@@ -426,7 +425,6 @@ body.dark-theme .navigation.scrolled {
     display: block;
 }
 
-/* Tùy chỉnh style cho audio controls */
 .audio-controls audio {
     height: 30px;
     border-radius: 15px;
@@ -556,7 +554,6 @@ body.dark-theme .server-image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Media queries cho điện thoại và tablet */
 @media screen and (max-width: 768px) {
     .navigation {
         width: 100%;
@@ -572,13 +569,15 @@ body.dark-theme .server-image {
         align-items: flex-start;
         height: auto;
         padding: 10px;
+        position: relative;
     }
 
     .mobile-menu-btn {
         display: block;
         position: absolute;
         right: 15px;
-        top: 15px;
+        z-index: 10px;
+        top: 50%;  
     }
 
     .navigation ul {
@@ -605,7 +604,7 @@ body.dark-theme .server-image {
     }
 
     .search-box {
-        width: calc(100% - 50px); /* Để tránh overlap với nút menu */
+        width: calc(100% - 50px);
         margin-top: 10px;
     }
 
@@ -658,7 +657,6 @@ body.dark-theme .server-image {
     }
 }
 
-/* Media queries cho tablet */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .navigation {
         width: 100%;
@@ -729,7 +727,6 @@ section:not(:last-child) {
     padding-bottom: 50px;
 }
 
-/* Cho dark theme */
 body.dark-theme section:not(:last-child) {
     border-bottom: 2px solid rgba(255, 183, 197, 0.2);
 }
@@ -800,7 +797,6 @@ body.dark-theme section:not(:last-child) {
     }
 }
 
-/* Dark theme support */
 body.dark-theme .toast-notification {
     background: #333;
 }
@@ -835,4 +831,55 @@ body.dark-theme .toast-message {
     top: 20px;
     right: 20px;
     z-index: 1000;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .navigation ul.show {
+        display: flex;
+    }
+
+    .navigation ul li {
+        width: 100%;
+    }
+
+    .navigation a {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 0;
+        justify-content: flex-start;
+    }
+
+    .search-box {
+        width: calc(100% - 50px); 
+    }
 }

@@ -48,6 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon === null || themeIcon === void 0 ? void 0 : themeIcon.classList.add('fa-moon');
         }
     });
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.navigation ul');
+    menuBtn === null || menuBtn === void 0 ? void 0 : menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu === null || navMenu === void 0 ? void 0 : navMenu.classList.toggle('show');
+    });
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!target.closest('.navigation')) {
+            navMenu === null || navMenu === void 0 ? void 0 : navMenu.classList.remove('show');
+        }
+    });
+    document.querySelectorAll('.navigation a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu === null || navMenu === void 0 ? void 0 : navMenu.classList.remove('show');
+        });
+    });
 });
 let isControlsVisible = false;
 let isMusicPlaying = false;
