@@ -304,3 +304,33 @@ footer {
 body {
     font-family: 'Roboto', Arial, sans-serif;
 }
+
+li {
+    list-style: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-right nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: var(--hover-color);
+}

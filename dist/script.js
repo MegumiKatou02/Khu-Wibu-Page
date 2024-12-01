@@ -5,25 +5,23 @@ if ('scrollRestoration' in history) {
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
-document.querySelectorAll('.navigation a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            return;
-        }
-        if (!targetId)
-            return;
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        var _a;
+        if ((_a = e.currentTarget.getAttribute('href')) === null || _a === void 0 ? void 0 : _a.startsWith('#')) {
+            e.preventDefault();
+            const targetId = e.currentTarget.getAttribute('href');
+            if (targetId === '#') {
+                window.scrollTo(0, 0);
+            }
+            else {
+                if (targetId) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }
         }
     });
 });
@@ -234,4 +232,25 @@ function initializeSearch() {
 }
 document.addEventListener('DOMContentLoaded', () => {
     initializeSearch();
+});
+document.addEventListener('DOMContentLoaded', () => {
+    var _a;
+    // Mặc định hiển thị tab Event
+    (_a = document.getElementById('event')) === null || _a === void 0 ? void 0 : _a.classList.add('active');
+    // Xử lý chuyển tab
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            var _a, _b;
+            e.preventDefault();
+            const targetId = (_a = e.currentTarget.getAttribute('href')) === null || _a === void 0 ? void 0 : _a.substring(1);
+            // Ẩn tất cả các section
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Hiển thị section được chọn
+            if (targetId) {
+                (_b = document.getElementById(targetId)) === null || _b === void 0 ? void 0 : _b.classList.add('active');
+            }
+        });
+    });
 });
