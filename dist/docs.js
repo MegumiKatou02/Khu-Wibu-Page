@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalMeta = document.getElementById('modalMeta');
     const modalDescription = document.getElementById('modalDescription');
     const closeModal = document.querySelector('.close-modal');
-    // Xử lý click vào ảnh
     document.querySelectorAll('.moment-image').forEach(image => {
         image.addEventListener('click', (e) => {
             var _a, _b, _c;
@@ -23,41 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
             modalMeta.innerHTML = meta || '';
             modalDescription.textContent = description || '';
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Ngăn scroll khi modal mở
+            document.body.style.overflow = 'hidden';
         });
     });
-    // Đóng modal
     closeModal.addEventListener('click', () => {
         modal.classList.remove('show');
         document.body.style.overflow = '';
     });
-    // Đóng modal khi click bên ngoài
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('show');
             document.body.style.overflow = '';
         }
     });
-    // Đóng modal khi nhấn ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('show')) {
             modal.classList.remove('show');
             document.body.style.overflow = '';
         }
     });
-    // Mặc định hiển thị tab Event
     (_a = document.getElementById('event')) === null || _a === void 0 ? void 0 : _a.classList.add('active');
-    // Xử lý chuyển tab
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             var _a, _b;
             e.preventDefault();
             const targetId = (_a = e.currentTarget.getAttribute('href')) === null || _a === void 0 ? void 0 : _a.substring(1);
-            // Ẩn tất cả các section
             document.querySelectorAll('.section-content').forEach(section => {
                 section.classList.remove('active');
             });
-            // Hiển thị section được chọn
             if (targetId) {
                 (_b = document.getElementById(targetId)) === null || _b === void 0 ? void 0 : _b.classList.add('active');
             }

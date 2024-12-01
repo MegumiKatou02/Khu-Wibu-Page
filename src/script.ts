@@ -259,21 +259,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Mặc định hiển thị tab Event
     document.getElementById('event')?.classList.add('active');
 
-    // Xử lý chuyển tab
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e: Event) => {
             e.preventDefault();
             const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
             
-            // Ẩn tất cả các section
             document.querySelectorAll('.section-content').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Hiển thị section được chọn
             if (targetId) {
                 document.getElementById(targetId)?.classList.add('active');
             }

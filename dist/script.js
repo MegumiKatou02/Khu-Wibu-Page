@@ -235,19 +235,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', () => {
     var _a;
-    // Mặc định hiển thị tab Event
     (_a = document.getElementById('event')) === null || _a === void 0 ? void 0 : _a.classList.add('active');
-    // Xử lý chuyển tab
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             var _a, _b;
             e.preventDefault();
             const targetId = (_a = e.currentTarget.getAttribute('href')) === null || _a === void 0 ? void 0 : _a.substring(1);
-            // Ẩn tất cả các section
             document.querySelectorAll('.section-content').forEach(section => {
                 section.classList.remove('active');
             });
-            // Hiển thị section được chọn
             if (targetId) {
                 (_b = document.getElementById(targetId)) === null || _b === void 0 ? void 0 : _b.classList.add('active');
             }
